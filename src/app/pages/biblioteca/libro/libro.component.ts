@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./libro.component.scss']
 })
 export class LibroComponent implements OnInit {
-
+  public titulo = "Buscar libros"
+  public idlibro : string;
+  public nombre1 : string;
+  public fecha_lanzamiento : Date;
+  
   constructor() { }
 
   ngOnInit() {

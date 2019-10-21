@@ -1,11 +1,15 @@
-.form-signin{
-  max-width: 420px;
-
-  height: 100vh;
+html{
+  margin: 0px;
 }
-.container-login{
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  vertical-align: center;
+.boxlogin{
+  margin:95px auto;
+  width: 320px;
+  border-radius: 4px;
+
+}
+input[type="submit"]{
+  margin-top: 15px;
+}
+label{
+font-family: Arial, Helvetica, sans-serif;
 }
