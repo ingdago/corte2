@@ -1,18 +1,25 @@
-<div class="jumbotron boxlogin" >
-    <h2 class="card-header text-center">{{titulo}</h2>
-
-    <form formGroup="autorForm">
-      <label>Nombre</label>
-      <Input type="text" formControlName="Nombre" name="Nombre" >
+<div class="jumbotron " >
+    <h2 class="card-header text-center">{{titulo}}</h2>
+    
+    <form [formGroup]="autorForm">
+      <label>Codigo</label>
+      <Input type="text" formControlName="code"  >
         <br>
-        <label>Codigo</label>
-        <Input type="text" formControlName="codigo" name="codigo" >
+        <label>Nombre</label>
+        <Input type="text" formControlName="name"  >
           <br>
-      <label>Fecha de nacimiento</label>
-      <Input type="text" formControlName="Fec_nac" name="Fec_nac" >
+          <label>Apellido</label>
+        <Input type="text" formControlName="lastname"  >
+          <br>
+          <label>Fecha de nacimiento</label>
+        <Input type="text" formControlName="bd_year"  >
+          <br>
+      <label>Lugar de nacimiento</label>
+      <Input type="text" formControlName="bd_place" >
       <button type="button" value="Buscar" class="btn btn-success"> 
       
       
       <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2019</p>
     </form>
     </div>
+    
