@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup,FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthorService } from 'src/app/services/author.service';
 
 @Component({
   selector: 'app-autores',
@@ -7,27 +8,33 @@ import { FormGroup,FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./autores.component.scss']
 })
 export class AutoresComponent implements OnInit {
-  public titulo = "Autores"
-  public autorForm : FormGroup;// paso 1 formulario reactivo//definir la variable o la propiedad de tipo FormGropup
-  
-  constructor(protected fb: FormBuilder) { } //Inyeccion de dependencias paso 2
+
+  public autorForm: FormGroup;
+
+  constructor(protected fb:FormBuilder, protected service:AuthorService) {
+    this.createForm();
+   }
 
   ngOnInit() {
-  }
-
-  CreateForm(){//paso 3 crear formulario 
-    this.autorForm=this.fb.group
-    ({
-      code: ['', Validators.required],
-      name: ['', Validators.required],
-      lastname:['', Validators.required],
-      bd_year: ['', Validators.required],
-      death_year: ['', Validators.required],
-      bd_place: ['', Validators.required],
-      
+    this.service.getAuthors().subscribe (data=>{
+      console.log(data);
     });
-      
-
   }
-}
 
+  saveAuthor(){
+
+    this.service.postAuthor(this.autorForm.value).subscribe(data => alert ("listo"))
+  }
+  
+  createForm(){
+    this.autorForm = this.fb.group({
+      code: ["",[Validators.required,Validators.maxLength(5)]],
+      name: ["",[Validators.required]],
+      lastname: ["",[Validators.required]],    
+      bd_year: ["",[Validators.required]],
+      bd_place: ["",[Validators.required]],
+      death_year: ["",[Validators.required]]
+     
+    })  
+}
+}

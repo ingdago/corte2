@@ -1,25 +1,29 @@
-<div class="jumbotron " >
-    <h2 class="card-header text-center">{{titulo}}</h2>
-    
+
+    {{autorForm.value | json}}
+    <table>
+      <tr>
+        <td>Nombre</td>
+        <td>Apellido</td>
+      </tr>
+      <tr *ngform="let autor of authors">
+        <td>{{autor.name}}</td>
+        <td>{{autor.lastname}}</td>
+      </tr>
+    </table>
     <form [formGroup]="autorForm">
-      <label>Codigo</label>
-      <Input type="text" formControlName="code"  >
-        <br>
-        <label>Nombre</label>
-        <Input type="text" formControlName="name"  >
-          <br>
-          <label>Apellido</label>
-        <Input type="text" formControlName="lastname"  >
-          <br>
-          <label>Fecha de nacimiento</label>
-        <Input type="text" formControlName="bd_year"  >
-          <br>
-      <label>Lugar de nacimiento</label>
-      <Input type="text" formControlName="bd_place" >
-      <button type="button" value="Buscar" class="btn btn-success"> 
-      
-      
-      <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2019</p>
+      <br><b> Codigo</b> 
+      <br><input type="text" formControlName="code" name="code" />
+      <br><br><b> Nombre</b> 
+      <br><input type="text" formControlName="name" name="name"/>
+      <br><br><b> Apellido</b> 
+      <br><input type="text" formControlName="lastname" name="lastname"/>
+      <br><br><b> Fecha de Nacimiento:</b> 
+      <br><input type="date" formControlName="bd_year" name="bd_year" />
+      <br><br><b> Lugar de Nacimiento:</b> 
+      <br><input type="text" formControlName="bd_place" name="bd_place" />
+      <br><br><b> Fecha de Muerte:</b> 
+      <br><input type="date" formControlName="death_year" name="death_year" />
+      <br><br><button type="button" class="btn btn-success" [disabled]="autorForm.invalid" (click)="saveAuthor()">Enviar </button>
     </form>
     </div>
     

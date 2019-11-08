@@ -9,7 +9,10 @@ import { FormGroup,FormBuilder, Validators } from '@angular/forms';
 export class AreasComponent implements OnInit {
   public Formarea : FormGroup;// paso 1 formulario reactivo//definir la variable o la propiedad de tipo FormGropup
   
-  constructor(protected fb: FormBuilder) { } //Inyeccion de dependencias paso 2
+  constructor(protected fb: FormBuilder) {
+    this.CreateForm();
+   } //Inyeccion de dependencias paso 2
+  
   ngOnInit() {
   }
   CreateForm(){//paso 3 crear formulario 
